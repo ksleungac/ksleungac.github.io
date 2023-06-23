@@ -1,42 +1,50 @@
 <script setup>
-const { data: blogPostList } = useAsyncData("blogPostList", () => {
-  return queryContent("/blog").find();
+const route = useRoute();
+const category = route.params.category;
+const { data: blogPostList } = await useAsyncData("blogPostList", () => {
+  const text = queryContent("/blog").find();
+  // console.log(text);
+  return text;
 });
 </script>
 
 <template>
-  <div class="container">
-    <section class="articles">
-      <div class="column is-8 is-offset-2">
-        <div
-          v-for="blogPost in blogPostList"
-          :key="blogPost._path"
-          class="card article"
-        >
-          <NuxtLink :to="blogPost._path">
-            <section class="blog-post-card card article">
-              <div class="media">
-                <div class="media-content has-text-centered">
-                  <h3 class="title article-title has-text-weight-bold">
-                    {{ blogPost.title }}
-                  </h3>
-                  <BlogPostMeta
-                    :author="blogPost.author"
-                    :date="blogPost.dates.published"
-                  />
-                </div>
-              </div>
-              <div class="card-content">
-                <div class="content article-body is-size-5">
-                  {{ blogPost.description }}
-                </div>
-              </div>
-            </section>
-          </NuxtLink>
+  <section class="flex flex-col w-3/5 mx-auto">
+    <div
+      v-for="blogPost in blogPostList"
+      :key="blogPost._path"
+      class="rounded-lg"
+    >
+      <nuxt-link
+        v-if="blogPost._dir == category"
+        :to="blogPost._path"
+        class="drop-shadow-xl mt-10 h-60 relative block overflow-hidden rounded-lg border border-gray-300 p-4 sm:p-6 lg:p-8 bg-white"
+      >
+        <span
+          class="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"
+        ></span>
+
+        <div class="text-center">
+          <h3 class="text-3xl font-bold text-gray-900">
+            {{ blogPost.title }}
+          </h3>
+          <p class="mt-4 text-lg text-gray-500">
+            {{ blogPost.description }}
+          </p>
         </div>
-      </div>
-    </section>
-  </div>
+
+        <dl class="mt-6 flex gap-4 sm:gap-6 justify-center">
+          <div class="flex flex-col-reverse">
+            <dt class="text-sm font-medium text-gray-600">Published</dt>
+            <dd class="text-xs text-gray-500">
+              {{ blogPost.dates.published }}
+            </dd>
+          </div>
+          <BlogPostMeta :author="blogPost.author" />
+        </dl>
+      </nuxt-link>
+    </div>
+  </section>
 </template>
 
 <style>
