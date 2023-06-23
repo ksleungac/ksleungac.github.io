@@ -8,7 +8,7 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
 <template>
   <main>
     <TheHero>
-      <template v-slot:default>
+      <template v-slot:title>
         {{ blogPost.title }}
       </template>
 

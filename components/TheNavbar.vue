@@ -18,7 +18,8 @@ const isMobileNavOpen = ref(false);
           class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center"
         >
           <NavBarLink link="/">Home</NavBarLink>
-          <NavBarLink link="/blog/comp4621">COMP4621 Diaries</NavBarLink>
+          <NavBarLink link="/blog/comp4621"> COMP4621 </NavBarLink>
+          <NavBarLink link="/blog/test">Trinity Site</NavBarLink>
         </div>
       </div>
     </div>

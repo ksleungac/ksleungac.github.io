@@ -9,11 +9,11 @@
         <h1
           class="p-3 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
         >
-          <slot />
+          <slot name="title" />
         </h1>
 
         <p class="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-          <slot name="subtitle" />
+          <slot name="subtitle">Someone didn't put a subtitle!</slot>
         </p>
       </div>
     </div>
