@@ -16,7 +16,7 @@ const { data: blogPostList } = await useAsyncData("blogPostList", () => {
       class="rounded-lg"
     >
       <nuxt-link
-        v-if="blogPost._dir == category"
+        v-if="blogPost._dir == category || category === undefined"
         :to="blogPost._path"
         class="drop-shadow-xl mt-10 h-60 relative block overflow-hidden rounded-lg border border-gray-300 p-4 sm:p-6 lg:p-8 bg-white"
       >

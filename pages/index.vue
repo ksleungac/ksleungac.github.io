@@ -3,7 +3,10 @@ const route = useRoute();
 </script>
 <template>
   <main class="bg-slate-100">
-    <TheHero> Testing Testing ?!! See all posts! </TheHero>
-    <BlogPostList :key="route.params.category" />
+    <TheHero
+      ><template #title>Testing Testing ?!!</template
+      ><template #subtitle>You shall see all posts</template></TheHero
+    >
+    <BlogPostList />
   </main>
 </template>
