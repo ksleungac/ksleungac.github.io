@@ -6,7 +6,7 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
 </script>
 
 <template>
-  <main>
+  <main class="bg-slate-100">
     <TheHero>
       <template v-slot:title>
         {{ blogPost.title }}
@@ -22,9 +22,9 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
           class="rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl"
         >
           <div class="block rounded-xl bg-white p-4 sm:p-6 lg:p-8" href="">
-            <div>
-              <ContentDoc class="prose" />
-            </div>
+            <ContentDoc
+              class="prose prose-img:transition prose-img:-mb-4 hover:prose-img:scale-150 max-w-none"
+            />
           </div>
         </div>
       </section>
