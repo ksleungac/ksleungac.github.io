@@ -10,10 +10,9 @@ description: "This is a description for my first blog post"
 
 This is basic h1
 
-##Second Heading
+## Second Heading
 
-- ul
-  1. one
+- 1. one
   2. two
   3. three
 - Haha

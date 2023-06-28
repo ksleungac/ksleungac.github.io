@@ -2,28 +2,20 @@
 const props = defineProps({
   author: {
     type: String,
-    required: true
+    required: true,
   },
-  date: {
-    type: String,
-    required: true
-  },
-  color: {
-    type: String,
-    default: 'info'
-  }
-})
+});
 
 const formattedDate = computed(() => {
-  return new Date(props.date).toDateString()
-})
+  return new Date(props.date).toDateString();
+});
 </script>
 
 <template>
-  <div class="tags has-addons level-item are-medium">
-    <span class="tag is-rounded" :class="`is-${color}`">{{ author }}</span>
-    <span class="tag is-rounded">{{ formattedDate }}</span>
-  </div>
+  <span
+    class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-2 text-sm text-purple-700"
+    >{{ author }}</span
+  >
 </template>
 
 <style></style>

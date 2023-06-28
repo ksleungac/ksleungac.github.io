@@ -1,6 +1,12 @@
+<script setup>
+const route = useRoute();
+</script>
 <template>
-  <main>
-    <TheHero> A Nuxt Content v2 Blog with Bulma </TheHero>
+  <main class="bg-slate-100">
+    <TheHero
+      ><template #title>Testing Testing ?!!</template
+      ><template #subtitle>You shall see all posts</template></TheHero
+    >
     <BlogPostList />
   </main>
 </template>
