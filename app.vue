@@ -14,19 +14,19 @@ useHead({
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css?family=Open+Sans",
     },
-    // {
-    //   rel: 'stylesheet',
-    //   href: 'https://unpkg.com/bulma@0.9.3/css/bulma.min.css'
-    // }
   ],
 });
 </script>
 
 <template>
   <TheNavbar />
-  <div>
+  <div class="bg-slate-100 h-screen">
     <NuxtPage />
   </div>
 </template>
 
-<style></style>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+</style>

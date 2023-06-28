@@ -3,7 +3,7 @@
 <template>
   <section class="bg-gray-900 text-white -mb-32">
     <div
-      class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-full lg:items-center"
+      class="mx-auto max-w-screen-xl px-4 pb-32 pt-8 sm:pt-16 lg:flex sm:h-full lg:items-center"
     >
       <div class="mx-auto max-w-3xl text-center">
         <h1
@@ -21,7 +21,4 @@
 </template>
 
 <style>
-.a {
-  width: 100%;
-}
 </style>

@@ -13,11 +13,11 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
       </template>
 
       <template v-slot:subtitle>
-        <BlogPostMeta :author="blogPost.author" />
+        Published: {{ blogPost.dates.published }}
       </template>
     </TheHero>
     <div>
-      <section class="w-3/5 mx-auto mt-10">
+      <section class="w-11/12 sm:w-4/5 lg:w-3/5 max-w-screen-xl mx-auto mt-10 ">
         <div
           class="rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 shadow-xl"
         >
@@ -31,3 +31,6 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
     </div>
   </main>
 </template>
+
+<style scoped>
+</style>

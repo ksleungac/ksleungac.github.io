@@ -7,5 +7,5 @@ export default defineNuxtConfig({
     highlight: {
       theme: "one-dark-pro",
     },
-  },
+  }
 });
