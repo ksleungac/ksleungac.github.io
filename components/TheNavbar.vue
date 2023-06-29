@@ -1,27 +1,64 @@
 <script setup>
+import { ref } from 'vue';
 const isMobileNavOpen = ref(false);
+
+const toggle = () => {
+  isMobileNavOpen.value = !(isMobileNavOpen.value);
+};
 </script>
 
 <template>
   <header>
     <div class="mx-auto max-w-screen-xl px-4 py-6 sm:px-6 sm:py-6 lg:px-8">
-      <div class="sm:flex sm:items-center sm:justify-between">
+      <div class="flex items-center justify-between">
         <div class="text-center sm:text-left">
           <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
-            Welcome to Oscar Leung's Playground
+            Oscar Leung's Playground
           </h1>
 
           <p class="mt-1.5 text-sm text-gray-500">Hi, Nice to meet you. 🎉</p>
         </div>
 
         <div
-          class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center"
+          class="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center"
         >
-          <NavBarLink link="/">Home</NavBarLink>
-          <NavBarLink link="/blog/comp4621"> COMP4621 </NavBarLink>
-          <NavBarLink link="/blog/test">Trinity Site</NavBarLink>
+          <nav aria-label="Global" class="hidden md:block">
+            <ul class="flex items-center gap-6 text-sm">
+              <li><NavBarLink link="/">Home</NavBarLink></li>
+              <li><NavBarLink link="/blog/comp4621">COMP4621</NavBarLink></li>
+              <li><NavBarLink link="/blog/test">Trinity Site</NavBarLink></li>
+            </ul>
+          </nav>
+          <div class="block md:hidden" @click="toggle">
+            <button
+              class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
+      <div
+          v-if="isMobileNavOpen"
+          class="md:hidden absolute end-4 w-1/3 z-10 grid grid-cols-1 rounded-md border border-gray-100 bg-white shadow-lg"
+        >
+          <NavBarLink link="/" >Home</NavBarLink>
+          <NavBarLink link="/blog/comp4621">COMP4621</NavBarLink>
+          <NavBarLink class="nowrap" link="/blog/test">Trinity Site</NavBarLink>
+        </div>
     </div>
   </header>
 </template>

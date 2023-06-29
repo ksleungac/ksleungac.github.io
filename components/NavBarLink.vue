@@ -10,9 +10,8 @@ const props = defineProps({
 <template>
   <Nuxt-link
     :to="link"
-    class="inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 px-5 py-3 text-gray-500 transition hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring"
-    type="button"
+    class="inline-flex items-center justify-center rounded-lg px-5 py-3 text-gray-500 transition hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring"
   >
-    <span class="text-base font-medium"><slot /></span>
+    <span class="text-base font-medium whitespace-nowrap"><slot /></span>
   </Nuxt-link>
 </template>
