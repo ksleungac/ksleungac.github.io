@@ -24,9 +24,11 @@
               Hi, I am a year 3 undergraduate studying Computer Science at HKUST.       
               Lorem ipsum dolor...
             </p>
+            <br />
             <p class="text-sm text-white">
               Find me on:
-              <a href="https://github.com/ksleungac" class="underline decoration-solid">Github</a>
+              <a href="https://github.com/ksleungac" class="underline decoration-solid">Github</a> <br />
+              <a href="mailto:ksleungac@connect.ust.hk" class="underline decoration-solid">School Email</a>
             </p>
           </div>
         </div>
