@@ -1,13 +1,13 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 const isMobileNavOpen = ref(false);
 
 const toggle = () => {
-  isMobileNavOpen.value = !(isMobileNavOpen.value);
+  isMobileNavOpen.value = !isMobileNavOpen.value;
 };
 const setOff = () => {
   isMobileNavOpen.value = false;
-}
+};
 </script>
 
 <template>
@@ -22,9 +22,7 @@ const setOff = () => {
           <p class="mt-1.5 text-sm text-gray-500">Hi, Nice to meet you. 🎉</p>
         </div>
 
-        <div
-          class="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center"
-        >
+        <div class="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center">
           <nav aria-label="Global" class="hidden md:block">
             <ul class="flex items-center gap-6 text-sm">
               <li><NavBarLink link="/">Home</NavBarLink></li>
@@ -54,16 +52,27 @@ const setOff = () => {
           </div>
         </div>
       </div>
-      <div
+      <Transition>
+        <div
           v-if="isMobileNavOpen"
           class="md:hidden absolute end-4 w-1/3 grid grid-cols-1 rounded-md border border-gray-100 bg-white shadow-lg"
         >
-          <NavBarLink link="/" >Home</NavBarLink>
+          <NavBarLink link="/">Home</NavBarLink>
           <NavBarLink link="/blog/comp4621">COMP4621</NavBarLink>
           <NavBarLink class="nowrap" link="/blog/test">Trinity Site</NavBarLink>
         </div>
+      </Transition>
     </div>
   </header>
 </template>
 
-<style></style>
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}</style>

@@ -1,11 +1,10 @@
 <script setup>
-const route = useRoute();
 </script>
 <template>
   <main>
     <TheHero
-      ><template #title>Testing Testing ?!!</template
-      ><template #subtitle>You shall see all posts</template></TheHero
+      ><template #title>Home</template
+      ><template #subtitle>Showing all posts</template></TheHero
     >
     <div class="w-11/12 grid grid-cols-none sm:grid-cols-6 mx-auto max-w-screen-xl gap-x-4">
       <ProfileCard class="col-span-4 sm:col-span-2" />
