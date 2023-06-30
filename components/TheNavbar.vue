@@ -30,7 +30,7 @@ const setOff = () => {
               <li><NavBarLink link="/blog/test">Trinity Site</NavBarLink></li>
             </ul>
           </nav>
-          <div class="block md:hidden" @click="toggle" v-click-away="setOff">
+          <div class="block md:hidden" @click="toggle">
             <button
               class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
             >
