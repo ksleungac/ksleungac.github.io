@@ -5,6 +5,9 @@ const isMobileNavOpen = ref(false);
 const toggle = () => {
   isMobileNavOpen.value = !(isMobileNavOpen.value);
 };
+const setOff = () => {
+  isMobileNavOpen.value = false;
+}
 </script>
 
 <template>
@@ -12,7 +15,7 @@ const toggle = () => {
     <div class="mx-auto max-w-screen-xl px-4 py-6 sm:px-6 sm:py-6 lg:px-8">
       <div class="flex items-center justify-between">
         <div class="text-center sm:text-left">
-          <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
+          <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">
             Oscar Leung's Playground
           </h1>
 
@@ -29,7 +32,7 @@ const toggle = () => {
               <li><NavBarLink link="/blog/test">Trinity Site</NavBarLink></li>
             </ul>
           </nav>
-          <div class="block md:hidden" @click="toggle">
+          <div class="block md:hidden" @click="toggle" v-click-away="setOff">
             <button
               class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
             >
@@ -53,7 +56,7 @@ const toggle = () => {
       </div>
       <div
           v-if="isMobileNavOpen"
-          class="md:hidden absolute end-4 w-1/3 z-10 grid grid-cols-1 rounded-md border border-gray-100 bg-white shadow-lg"
+          class="md:hidden absolute end-4 w-1/3 grid grid-cols-1 rounded-md border border-gray-100 bg-white shadow-lg"
         >
           <NavBarLink link="/" >Home</NavBarLink>
           <NavBarLink link="/blog/comp4621">COMP4621</NavBarLink>

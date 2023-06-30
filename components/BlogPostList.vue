@@ -16,7 +16,7 @@ const { data: blogPostList } = await useAsyncData("blogPostList", () => {
       <nuxt-link
         v-if="blogPost._dir == category || category === undefined"
         :to="blogPost._path"
-        class="transition hover:scale-105 drop-shadow-xl mt-3 sm:mt-5 lg:mt-10 relative block overflow-hidden border border-gray-300 p-4 sm:p-6 lg:p-8 bg-white"
+        class="transition hover:scale-105 drop-shadow-xl mt-3 lg:mt-10 relative block overflow-hidden border border-gray-300 p-4 sm:p-6 lg:p-8 bg-white"
       >
         <span
           class="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"

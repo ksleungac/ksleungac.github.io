@@ -20,13 +20,11 @@ useHead({
 
 <template>
   <TheNavbar />
-  <div class="bg-slate-100 h-screen">
+  <div class="bg-slate-100 pb-4">
     <NuxtPage />
   </div>
+  <TheFooter />
 </template>
 
 <style>
-html {
-  scroll-behavior: smooth;
-}
 </style>
