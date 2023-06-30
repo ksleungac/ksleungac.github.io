@@ -23,7 +23,7 @@ heroTitle.forEach((obj) => {
 });
 </script>
 <template>
-  <main class="bg-slate-100">
+  <main>
     <TheHero
       ><template #title>{{ spanTitle }}</template
       ><template #subtitle>{{ spanSubtitle }}</template></TheHero
