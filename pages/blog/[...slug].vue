@@ -23,7 +23,7 @@ const { data: blogPost } = await useAsyncData(`content-${path}`, () => {
         >
           <div class="block rounded-xl bg-white p-4 sm:p-6 lg:p-8">
             <ContentDoc
-              class="prose prose-img:transition prose-img:-mb-4 hover:prose-img:scale-150 max-w-none"
+              class="prose prose-img:transition prose-img:delay-100 prose-img:mx-auto prose-img:-mb-4 hover:prose-img:scale-125 max-w-none prose-a:no-underline"
             />
           </div>
         </div>
