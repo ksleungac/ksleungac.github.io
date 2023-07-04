@@ -2,7 +2,7 @@
 </script>
 <template>
   <div class="mt-4 lg:mt-10 drop-shadow-lg">
-    <div class="group relative block bg-black sm:h-auto hover:h-full sm:hover:h-auto transition-[height]">
+    <div class="group relative block bg-black h-20 hover:h-[22rem] sm:h-auto sm:hover:h-auto transition-all">
       <img
         alt="Developer"
         src="/img/avatar.jpg"

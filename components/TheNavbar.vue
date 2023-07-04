@@ -27,7 +27,7 @@ const setOff = () => {
             <ul class="flex items-center gap-6 text-sm">
               <li><NavBarLink link="/">Home</NavBarLink></li>
               <li><NavBarLink link="/blog/comp4621">COMP4621</NavBarLink></li>
-              <li><NavBarLink link="/blog/test">Trinity Site</NavBarLink></li>
+              <li><NavBarLink class="nowrap" link="/blog/test">Trinity Site</NavBarLink></li>
             </ul>
           </nav>
           <div class="block md:hidden" @click="toggle" v-click-outside="setOff">
