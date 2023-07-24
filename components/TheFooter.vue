@@ -39,7 +39,7 @@ const scrollToTop = () => {
           <p
             class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-400 lg:text-left"
           >
-            This website is built using Nuxt 3, Vue 3 and Nuxt Content.
+            Built with Nuxt 3, Vue 3 and Nuxt Content. Thanks WebGL!
             <br /> Yes, I am using the most modern technology for the most ancient task.
           </p>
         </div>

@@ -11,7 +11,7 @@ const setOff = () => {
 
 const route = useRoute();
 const home = computed (() => {
-  return route.params.category === undefined;
+  return route.params.category === undefined && isMobileNavOpen != true;
 });
 </script>
 
@@ -20,7 +20,7 @@ const home = computed (() => {
     <div class="mx-auto max-w-screen-xl px-4 py-6 sm:px-6 sm:py-6 lg:px-8">
       <div class="flex items-center justify-between">
         <div class="text-center sm:text-left">
-          <h1 class="text-xl font-bold text-gray-900 sm:text-3xl" :class="{ 'text-gray-300' : home }">
+          <h1 class="text-xl font-bold text-gray-900 sm:text-3xl" :class="{ 'text-white' : home }">
             Oscar Leung's Playground
           </h1>
 
@@ -37,7 +37,8 @@ const home = computed (() => {
           </nav>
           <div class="block md:hidden" @click="toggle" v-click-outside="setOff">
             <button
-              class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+              class="rounded p-2 text-gray-600 transition hover:text-gray-600/75"
+              :class="{ 'text-white' : home }"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -60,8 +61,8 @@ const home = computed (() => {
       <Transition>
         <div
           v-if="isMobileNavOpen"
-          class="md:hidden absolute end-4 w-1/3 grid grid-cols-1 rounded-md border border-gray-100 bg-white shadow-lg"
-          :class="{ 'bg-slate-800' : home, 'border-gray-800' : home }"
+          class="md:hidden absolute end-4 w-40 grid grid-cols-1 rounded-md border border-gray-100 shadow-lg"
+          :class="{ 'bg-black' : home , 'bg-white' : !home , 'border-white' : home }"
         >
           <NavBarLink link="/">Home</NavBarLink>
           <NavBarLink link="/blog/comp4621">COMP4621</NavBarLink>

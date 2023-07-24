@@ -49,8 +49,8 @@ export default {
       uniform mat4 matrix; 
 
       void main() {
-        vColor = vec3(position.xy, 0.6);
-        gl_PointSize = 1.1;
+        vColor = vec3(position.xy, 0.7);
+        gl_PointSize = 1.0;
         gl_Position = matrix * vec4(position, 1);
       }
       `);
@@ -89,7 +89,7 @@ export default {
       const viewMatrix = mat4.create();
       const projectionMatrix = mat4.create();
       mat4.perspective(projectionMatrix,
-        90 * Math.PI/180,
+        60 * Math.PI/180,
         canvas.width/canvas.height,
         1e-4,
         1e4
@@ -104,8 +104,8 @@ export default {
 
       function animate() {
         requestAnimationFrame(animate);
-        mat4.rotateY(modelMatrix, modelMatrix, 0.001);
-        mat4.rotateX(modelMatrix, modelMatrix, 0.001);
+        mat4.rotateY(modelMatrix, modelMatrix, 0.0005);
+        mat4.rotateX(modelMatrix, modelMatrix, 0.0005);
         mat4.multiply(mvMatrix, viewMatrix, modelMatrix);
         mat4.multiply(finalMatrix, projectionMatrix, mvMatrix);
         gl.uniformMatrix4fv(uniformLocations.matrix, false, finalMatrix);
