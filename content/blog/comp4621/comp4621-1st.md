@@ -5,7 +5,7 @@ dates:
   published: "26-2-2022"
 description: "Diary for COMP4621 Project 1. We worked on the washing machines inside our hall, such that our fellow schoolmates wash clothes efficiently."
 ---
-## Where were we started?
+## Where we started?
 We have asked the pain point of living in campus to some of our friends and among ourselves. Their feedback was the like the queuing problems in the library and the canteen, as weel as the laundry problems.
 
 Therefore, We have decided to make an app design with the idea of 'Smart Laudry'. The reason behind this is that, we found ourselves all have the idea to improve the laudry rooms on campus. The thing is, everytime a student goes down to laudry rooms, he found no machines available, and have to either wait or go back to his room with no luck. Another thing is, many students they just forgot to take their clothes out even the washing is finished anyway.

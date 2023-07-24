@@ -2,7 +2,7 @@
 </script>
 <template>
   <main>
-    <TheHero
+    <TheHero class="bg-transparent"
       ><template #title>Home</template
       ><template #subtitle>Showing all posts</template></TheHero
     >
@@ -11,4 +11,5 @@
       <BlogPostList class="col-span-4 w-full lg:w-11/12" />
     </div>
   </main>
+  <WebGLxDotCloud />
 </template>

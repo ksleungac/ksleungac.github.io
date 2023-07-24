@@ -40,7 +40,7 @@ const scrollToTop = () => {
             class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-400 lg:text-left"
           >
             This website is built using Nuxt 3, Vue 3 and Nuxt Content.
-            <br /> Yes, I am using the most moderm technology for the most ancient task.
+            <br /> Yes, I am using the most modern technology for the most ancient task.
           </p>
         </div>
 

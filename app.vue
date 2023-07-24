@@ -9,7 +9,7 @@ useHead({
 
 <template>
   <TheNavbar />
-  <div class="bg-slate-100 pb-4">
+  <div class="pb-4">
     <NuxtPage />
   </div>
   <TheFooter />
