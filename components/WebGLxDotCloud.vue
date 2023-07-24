@@ -50,7 +50,7 @@ export default {
 
       void main() {
         vColor = vec3(position.xy, 0.7);
-        gl_PointSize = 1.0;
+        gl_PointSize = 1.4;
         gl_Position = matrix * vec4(position, 1);
       }
       `);
