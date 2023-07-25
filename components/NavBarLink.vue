@@ -8,7 +8,7 @@ const props = defineProps({
 
 const route = useRoute();
 const home = computed (() => {
-  return route.params.category === undefined;
+  return Object.keys(route.params).length === 0;
 });
 </script>
 
