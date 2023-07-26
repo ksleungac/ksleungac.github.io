@@ -1,42 +1,29 @@
-# Nuxt Content v2 Blog with Bulma
-
-Look at the [Content documentation](https://content-v2.nuxtjs.org/) to learn more.
-
+# Personal Portofolio
+This is the code repository for my personal portofolio: [Oscar Leung's Playground](https://ksleungac.github.io/)  
+Main Tools: Nuxt 3 (Vue 3), Nuxt Content 2 and WebGL2.
 ## Setup
-
-Make sure to install the dependencies:
-
 ```bash
-# yarn
-yarn install
-
 # npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+npm ci
 ```
 
 ## Development Server
-
-Start the development server on http://localhost:3000
-
+Dvelopment server on http://localhost:3000
 ```bash
 npm run dev
 ```
 
 ## Production
-
 Build the application for production:
 
 ```bash
-npm run build
+# Generate for deployment
+npm run generate
+# Deploy to Github Pages (Windows cmd ONLY!)
+npm run deploy
 ```
 
-Locally preview production build:
-
+## Locally preview production build:
 ```bash
-npm run preview
+npx serve .output/public
 ```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
