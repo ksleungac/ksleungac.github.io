@@ -2,7 +2,7 @@
 title: "Group project 3 - Social VR Cultural World"
 author: "@Leung King Suen, Oscar"
 dates:
-  published: "2022-05-04"
+  published: "04-05-2022"
 description: "Diary for COMP4621 Project 3"
 ---
 

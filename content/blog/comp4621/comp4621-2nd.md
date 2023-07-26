@@ -2,7 +2,7 @@
 title: "Group project 2 - Self Quarantine Chatbot"
 author: "@Leung King Suen, Oscar"
 dates:
-  published: "2022-03-30"
+  published: "30-03-2022"
 description: "Diary for COMP4621 Project 2"
 ---
 

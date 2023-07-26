@@ -11,7 +11,7 @@ const setOff = () => {
 
 const route = useRoute();
 const home = computed(() => {
-  return Object.keys(route.params).length === 0 && isMobileNavOpen != true;
+  return route.name === "index" && isMobileNavOpen != true;
 });
 </script>
 
@@ -32,9 +32,10 @@ const home = computed(() => {
 
         <div class="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center">
           <nav aria-label="Global" class="hidden md:block">
-            <ul class="flex items-center gap-6 text-sm">
+            <ul class="flex items-center gap-10 text-sm">
               <li><NavBarLink link="/">Home</NavBarLink></li>
               <li><NavBarLink link="/blog/comp4621">COMP4621</NavBarLink></li>
+              <li><NavBarLink link="/blog/">Blogs</NavBarLink></li>
               <li>
                 <NavBarLink class="nowrap" link="/blog/test"
                   >Trinity Site</NavBarLink
@@ -89,6 +90,7 @@ const home = computed(() => {
         >
           <NavBarLink link="/">Home</NavBarLink>
           <NavBarLink link="/blog/comp4621">COMP4621</NavBarLink>
+          <NavBarLink link="/blog/">Blogs</NavBarLink>
           <NavBarLink class="nowrap" link="/blog/test">Trinity Site</NavBarLink>
         </div>
       </Transition>

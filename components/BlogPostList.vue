@@ -5,7 +5,7 @@ const { data: blogPostList } = await useAsyncData("blogPostList", () => {
   const text = queryContent("/blog").find();
   return text;
 });
-const query= ref("")
+const query= ref("");
 </script>
 
 <template>
