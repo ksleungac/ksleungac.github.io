@@ -1,18 +1,18 @@
 <script setup>
-const route = useRoute();
-const category = route.params.category;
-const { data: blogPostList } = await useAsyncData("blogPostList", () => {
-  const text = queryContent("/blog").find();
-  return text;
+import { ref } from 'vue';
+let query= ref("");
+const props = defineProps({
+  blogPostList : {
+    type: Array,
+    required: true
+  }
 });
-const query= ref("");
 </script>
 
 <template>
   <section class="flex flex-col mx-auto">
     <div class="relative mt-4 lg:mt-10">
           <label for="Search" class="sr-only"> Search </label>
-
           <input
             v-model="query"
             type="text"
@@ -46,7 +46,6 @@ const query= ref("");
       <Transition>
         <nuxt-link
           v-if="
-            (blogPost._dir == category || category === undefined) &&
             (blogPost.title.toLowerCase().includes(query) ||
               blogPost.description.toLowerCase().includes(query))
           "

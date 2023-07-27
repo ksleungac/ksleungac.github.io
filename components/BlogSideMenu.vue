@@ -1,12 +1,15 @@
 <script setup>
-let { data: blogCategory } = await useAsyncData("blogCategory", () => {
-  const text = queryContent("/").where({ _dir : '' }).find();
+let { data: blogCategory } = await useAsyncData('blogCategory', () => {
+  const text = queryContent('/').where({ _dir : '' }).find();
   return text;
 });
 blogCategory = blogCategory._value[0].body;
 
-const filter = ref("");
+defineProps({
+  modelValue: String
+});
 
+let emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
@@ -14,7 +17,7 @@ const filter = ref("");
     <ul>
       <li v-for="cat in blogCategory" :key="cat.title"
         class="mb-4">
-        <a href="" class="group relative block h-20 sm:h-20 lg:h-20">
+        <a href="javascript:;" class="group relative block h-20 sm:h-20 lg:h-20" @click="emit('update:modelValue', cat.value)">
           <span class="absolute inset-0 border-2 border-dashed border-black"></span>
 
           <div
@@ -23,13 +26,13 @@ const filter = ref("");
             <div
               class="transition-opacity group-hover:absolute group-hover:opacity-0 p-6"
             >
-              <span class="text-xl font-medium">{{ cat.title }}</span>
+              <span class="text-base lg:text-xl font-medium">{{ cat.title }}</span>
             </div>
 
             <div
               class="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100"
             >
-              <h3 class="mt-4 text-xl font-medium">{{ cat.title }}</h3>
+              <h3 class="mt-4 text-base lg:text-xl font-medium">{{ cat.title }}</h3>
 
               <p class="text-sm">
                 {{ cat.description }}

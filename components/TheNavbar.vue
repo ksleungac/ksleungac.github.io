@@ -34,13 +34,7 @@ const home = computed(() => {
           <nav aria-label="Global" class="hidden md:block">
             <ul class="flex items-center gap-10 text-sm">
               <li><NavBarLink link="/">Home</NavBarLink></li>
-              <li><NavBarLink link="/blog/comp4621">COMP4621</NavBarLink></li>
               <li><NavBarLink link="/blog/">Blogs</NavBarLink></li>
-              <li>
-                <NavBarLink class="nowrap" link="/blog/test"
-                  >Trinity Site</NavBarLink
-                >
-              </li>
             </ul>
           </nav>
           <div class="block md:hidden" @click="toggle" v-click-outside="setOff">
@@ -89,9 +83,7 @@ const home = computed(() => {
           :class="{ 'bg-black': home, 'bg-white': !home, 'border-white': home }"
         >
           <NavBarLink link="/">Home</NavBarLink>
-          <NavBarLink link="/blog/comp4621">COMP4621</NavBarLink>
           <NavBarLink link="/blog/">Blogs</NavBarLink>
-          <NavBarLink class="nowrap" link="/blog/test">Trinity Site</NavBarLink>
         </div>
       </Transition>
     </div>
