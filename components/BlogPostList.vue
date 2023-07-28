@@ -57,10 +57,10 @@ const props = defineProps({
           ></span>
 
           <div class="text-center">
-            <h3 class="sm:text-2xl lg:text-3xl font-bold text-gray-900">
+            <h3 class="text-xl xl:text-2xl font-bold text-gray-900">
               {{ blogPost.title }}
             </h3>
-            <p class="mt-4 sm:text-lg text-gray-500">
+            <p class="mt-4 text-base text-gray-500">
               {{ blogPost.description }}
             </p>
           </div>

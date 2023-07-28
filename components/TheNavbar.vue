@@ -79,7 +79,7 @@ const home = computed(() => {
       <Transition>
         <div
           v-if="isMobileNavOpen"
-          class="md:hidden absolute end-4 w-40 grid grid-cols-1 rounded-md border border-gray-100 shadow-lg"
+          class="md:hidden absolute end-4 w-40 grid grid-cols-1 rounded-md border border-gray-100 shadow-lg z-10"
           :class="{ 'bg-black': home, 'bg-white': !home, 'border-white': home }"
         >
           <NavBarLink link="/">Home</NavBarLink>

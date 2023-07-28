@@ -8,11 +8,10 @@ useHead({
 </script>
 
 <template>
-  <TheNavbar />
-  <div class="pb-4">
+  <div class="min-h-screen">
+    <TheNavbar />
     <NuxtPage />
   </div>
-  <TheFooter />
 </template>
 
 <style>
