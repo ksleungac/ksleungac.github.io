@@ -15,4 +15,10 @@ useHead({
 </template>
 
 <style>
+html {
+  scroll-behavior: smooth; 
+}
+h2, h3 {
+  scroll-margin-top: 10rem;
+}
 </style>
