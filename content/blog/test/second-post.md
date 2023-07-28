@@ -6,9 +6,10 @@ dates:
 description: "This is a description for my second blog post where counter works"
 ---
 
-## Counter works fom Vue component.
+## Counter works
 
 <Counter></Counter>
 
-## Even running WebGL!
+## Even running WebGL
+
 <WebGLxTriangle></WebGLxTriangle>

@@ -21,7 +21,6 @@
     "@tailwindcss/typography": "^0.5.9",
     "axios": "^1.4.0",
     "click-outside-vue3": "^4.0.1",
-    "gl-matrix": "^3.4.3",
-    "mitt": "^3.0.1"
+    "gl-matrix": "^3.4.3"
   }
 }

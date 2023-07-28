@@ -6,7 +6,7 @@ dates:
 description: "This is a description for my first blog post"
 ---
 
-# Sample Markdown
+## Sample Markdown
 
 This is basic h1
 
