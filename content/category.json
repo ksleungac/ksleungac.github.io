@@ -1,0 +1,24 @@
+{ "body" :
+  [ 
+    { 
+      "title" : "All Blogs", 
+      "description" : "I want ALL!",
+      "value" : ""
+    },
+    { 
+      "title" : "Machine Learning Projects", 
+      "description" : "Course Projects done in ML courses such as COMP4211",
+      "value" : "ml"
+    },
+    { 
+      "title" : "HCI Projects", 
+      "description" : "Human Computer Interaction (COMP4461) Projects",
+      "value" : "hci"
+    },
+    { 
+      "title" : "Testing Site", 
+      "description" : "Where I test nuclear bombs",
+      "value" : "test"
+    }
+  ]
+}

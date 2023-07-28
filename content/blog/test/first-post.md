@@ -2,11 +2,11 @@
 title: "the First Blog Post"
 author: "@lkfu"
 dates:
-  published: "2023-06-21"
+  published: "21-06-2023"
 description: "This is a description for my first blog post"
 ---
 
-# Sample Markdown
+## Sample Markdown
 
 This is basic h1
 

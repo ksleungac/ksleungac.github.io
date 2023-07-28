@@ -7,5 +7,12 @@ export default defineNuxtConfig({
     highlight: {
       theme: "one-dark-pro",
     },
+    markdown: {
+      anchorLinks: false,
+      toc: {
+        depth: 3,
+        searchDepth: 3
+      }
+    }
   }
 });

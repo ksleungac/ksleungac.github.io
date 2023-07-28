@@ -7,7 +7,7 @@
     >
       <div class="mx-auto max-w-3xl text-center">
         <h1
-          class="p-3 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+          class="p-3 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-extrabold text-transparent text-2xl md:text-4xl"
         >
           <slot name="title" />
         </h1>

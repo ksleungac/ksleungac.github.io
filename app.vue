@@ -8,12 +8,17 @@ useHead({
 </script>
 
 <template>
-  <TheNavbar />
-  <div class="pb-4">
+  <div class="min-h-screen">
+    <TheNavbar />
     <NuxtPage />
   </div>
-  <TheFooter />
 </template>
 
 <style>
+html {
+  scroll-behavior: smooth; 
+}
+h2, h3 {
+  scroll-margin-top: 10rem;
+}
 </style>

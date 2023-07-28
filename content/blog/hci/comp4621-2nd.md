@@ -2,7 +2,7 @@
 title: "Group project 2 - Self Quarantine Chatbot"
 author: "@Leung King Suen, Oscar"
 dates:
-  published: "2022-03-30"
+  published: "30-03-2022"
 description: "Diary for COMP4621 Project 2"
 ---
 
@@ -18,7 +18,7 @@ And, Luckily, one of our groupmate elizabeth is a exchange student, she also sha
 
 We firstly created the mindmap about the robot functions in Google slides, which is a rather simple version and later on we decided we would move them to mindmeister(same as lastime)
 
-![](/img/4621_2/p21.jpg)
+![Mindmap](/img/4621_2/p21.jpg)
 
 <figcaption class="text-center italic font-medium">Mindmap</figcaption>
 
@@ -30,24 +30,28 @@ It should also have informational features. We are also targetting it as a perso
 
 At last, it is a quarantine robot. So it should have some functions related to covid19, right? We think, it should provide latest covid informations, as well as 'what user should do' if the user is confirmed positive, or felt unwell. At last, as in quarantine, it is eazy so lose the sense of dates, time. So There a quarantine progress, the user can inquire the quarantine progress.
 
-## Storyboarding - what might happened
+## Storyboarding
+
+> What could happen, will happen
 
 This is the least thing I want to declare as my work, but, fine, I drew this _masterpiece_
 
 I want to express that, the user got into quarantine hotel, but he felt very bored, watched all youtube videos, and when he feels unwell, no one could help him. But then he found the quarantine chatbot, then suddenly his problem were solved. and his felt very good. Lastly at the end of the quarantine He felt love with the robot, and he don't want to leave anymore.
 
-![](/img/4621_2/storyboard1.png)
-![](/img/4621_2/storyboard2.jpg)
-![](/img/4621_2/storyboard3.jpg)
-![](/img/4621_2/storyboard4.jpg)
+![the Storyboard](/img/4621_2/storyboard1.png)
+![the Storyboard](/img/4621_2/storyboard2.jpg)
+![the Storyboard](/img/4621_2/storyboard3.jpg)
+![the Storyboard](/img/4621_2/storyboard4.jpg)
 
 <figcaption class="text-center italic font-medium">the Storyboard</figcaption>
 
-## Coding - The real part
+## Code
 
 We have 3 people working on the code works. I was incharge of implementing some entertainment functions. Also, I try to make the robot as humanly as possible.
 
-#### Part 1 - Python Action.py - getting images/texts from online APIs
+### Python Action.py
+
+#### Getting images/texts from online APIs
 
 For the robot to return more interesting content to us, it would have to run things in python, which is done by implementing custom actions inside action.py. For example, In order to return images from the website, it would have to GET images from the APIs. I have not work with an APIs in Python before(not in any languages...) But with the help from teammates, I can pull the image and texts from the web. The format pulled are a python dictionary, so I can do
 
@@ -113,7 +117,7 @@ class ActionGeek(Action):
         return []
 ```
 
-#### Part 2 - Python Action.py - Dealing with time/ storing/ printing
+#### Dealing with time/ storing/ printing
 
 In this part, I try to make the bot greet to the time of the day, say good morning good afternoon and good evening. also return a time , date in a organised, user friendly format ⬇️.
 
@@ -212,7 +216,7 @@ return "action_question_can_leave"
         return []
 ```
 
-#### Part 3 - Rasa parts - intents/ action/ rules
+### Rasa - intents/ action/ rules
 
 In this part, I will work the modules within Rasa. I don't want to explain too deeply how it works. (This diary is getting way too long...) In the nlu.yml files there's nothing special, I will mainly talk about the domain and stories files.
 
@@ -300,13 +304,15 @@ utter_goodbye:
     - text: "Did this make you laugh"
 ```
 
-## Coding & Thoughts - How do I make it respond like a human...
+## Coding & Thoughts
+
+> Make it human-like
 
 This is a long story.... If you had pay attention to what I showed above, mainly the codes, you will find there's many 'decoration' What I am trying to do in those case is to make the robot respond as humanly as possible.
 
 This is a good example. Both responses are a online responeses pulled from an API. In the previous testing, we found that, sometimes network may lag. This is especially true when we host the robot on other server. In this case, I wish it to provide something first, so the user won't have to wait for a blank screen. Moreover, let's say if the user want weather, I add the robot actions before my teammates work, so it will feel more of human-like. I also want to see things the prespective of the robot. So by using 'asking my friend at HKO' , it would make much of the sense, the rasa robot is asking the friends in HKO, which is happended to be a robot that boardcast APIs. So the information makes sense, also the users get to know where the weather information comes from. Same for the jokes, it would need something before the actual jokes returned. Moreover, this is a robot, so why not programmer jokes?
 
-```
+```shell
 Your input -> are you a humorous robot?
 Yes! I am the most humorous bot in the planet! Let me cheer you up!
 ‘Perl - The only Language that looks the same before and after RSA encryption.' - [Keith Bostic]
@@ -339,21 +345,21 @@ Remember I mentioned a progress bar and the Greet to the time of the day in the 
 
 Below is the progress bar. I think it would be better than just showing only a day left, of percentage left. It is good to show this as a bar. Like a game loading bar. Also, I have added emojis and indications, to add oil to users.
 
-![](/img/4621_2/p22.png)
+![Emojis in the respond](/img/4621_2/p22.png)
 
 <figcaption class="text-center italic font-medium">Emojis in the respond</figcaption>
 
-## Unfinished mini-wordle game...
+## Unfinished mini-wordle game
 
 I want to make a wordle games inside rasa. So users could play with rasa when boring. But due to my knowledge limitation, I can't. I made the forms, the entity to store the user guessed words, I also made the 2 actions, one to randomly choose a word from the word list, another one to validate uers word. Everything sounds fine, but I can't make past the nlu.yml.
 
 In RASA, users intents is triggered by matching words in the nlu.yml. The problem is, I can't make sure everytime users input a wordle guess, the robot will know he is playing wordle, and repeatedly executing that intent. If the users answer something that is not in the wordlist, The intent won't be triggerd... and validate function won't be called... then everything won't work
 
-![](/img/4621_2/p23.png)
+![Wordle Game](/img/4621_2/p23.png)
 
 <figcaption class="text-center italic font-medium">Wordle Game</figcaption>
 
-## Ending - Reflection
+## the Reflection
 
 At last, I am pretty confident and satisfied on the humanly reactions, speech tone of the final product. I would take this experience next time if I have to design simiar project, that is, think robot as a human. what a human would do, I would emulate, implement then in the robot. It is as imagining the robot is a real man.
 
