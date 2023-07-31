@@ -1,9 +1,7 @@
 <script setup>
 useHead({
-  title: "Oscar Leung Playground",
-  link: [
-
-  ]
+  title: 'Oscar Leung Playground',
+  link: []
 });
 </script>
 
@@ -16,9 +14,10 @@ useHead({
 
 <style>
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
-h2, h3 {
+h2,
+h3 {
   scroll-margin-top: 10rem;
 }
 </style>

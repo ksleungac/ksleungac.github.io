@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue';
-let query= ref("");
+const query = ref('');
 const props = defineProps({
-  blogPostList : {
+  blogPostList: {
     type: Array,
     required: true
   }
@@ -10,54 +10,54 @@ const props = defineProps({
 </script>
 
 <template>
-  <section class="flex flex-col mx-auto">
+  <section class="mx-auto flex flex-col">
     <div class="relative mt-4 lg:mt-10">
-          <label for="Search" class="sr-only"> Search </label>
-          <input
-            v-model="query"
-            type="text"
-            id="Search"
-            placeholder="Search for..."
-            class="w-full border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
-          />
+      <label for="Search" class="sr-only"> Search </label>
+      <input
+        id="Search"
+        v-model="query"
+        type="text"
+        placeholder="Search for..."
+        class="w-full border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+      />
 
-          <span class="absolute inset-y-0 end-0 grid w-10 place-content-center">
-            <button type="button" class="text-gray-600 hover:text-gray-700">
-              <span class="sr-only">Search</span>
+      <span class="absolute inset-y-0 end-0 grid w-10 place-content-center">
+        <button type="button" class="text-gray-600 hover:text-gray-700">
+          <span class="sr-only">Search</span>
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-4 w-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                />
-              </svg>
-            </button>
-          </span>
-        </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-4 w-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+        </button>
+      </span>
+    </div>
     <div v-for="blogPost in blogPostList" :key="blogPost._path">
       <Transition>
         <nuxt-link
           v-if="
-            (blogPost.title.toLowerCase().includes(query) ||
-              blogPost.description.toLowerCase().includes(query))
+            blogPost.title.toLowerCase().includes(query) ||
+            blogPost.description.toLowerCase().includes(query)
           "
           :to="blogPost._path"
-          class="transition hover:scale-105 drop-shadow-xl mt-3 lg:mt-10 relative block overflow-hidden border border-gray-300 p-4 sm:p-6 lg:p-8 bg-white"
+          class="relative mt-3 block overflow-hidden border border-gray-300 bg-white p-4 drop-shadow-xl transition hover:scale-105 sm:p-6 lg:mt-10 lg:p-8"
         >
           <span
             class="absolute inset-x-0 bottom-0 h-3 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"
           ></span>
 
           <div class="text-center">
-            <h3 class="text-xl xl:text-2xl font-bold text-gray-900">
+            <h3 class="text-xl font-bold text-gray-900 xl:text-2xl">
               {{ blogPost.title }}
             </h3>
             <p class="mt-4 text-base text-gray-500">
@@ -65,7 +65,7 @@ const props = defineProps({
             </p>
           </div>
 
-          <dl class="mt-6 flex gap-4 sm:gap-6 justify-center">
+          <dl class="mt-6 flex justify-center gap-4 sm:gap-6">
             <div class="flex flex-col-reverse">
               <dd class="text-xs text-gray-500">
                 {{ blogPost.dates.published }}

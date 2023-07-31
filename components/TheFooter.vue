@@ -3,7 +3,7 @@ const scrollToTop = () => {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
-  })
+  });
 };
 </script>
 <template>
@@ -13,7 +13,7 @@ const scrollToTop = () => {
     >
       <div class="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
         <a
-          class="animate-bounce inline-block rounded-full bg-teal-600 p-2 text-white shadow transition hover:bg-teal-500 dark:bg-gray-700 dark:text-teal-300 dark:hover:bg-gray-600 sm:p-3 lg:p-4"
+          class="inline-block animate-bounce rounded-full bg-teal-600 p-2 text-white shadow transition hover:bg-teal-500 dark:bg-gray-700 dark:text-teal-300 dark:hover:bg-gray-600 sm:p-3 lg:p-4"
           @click="scrollToTop"
         >
           <span class="sr-only">Back to top</span>
@@ -35,12 +35,13 @@ const scrollToTop = () => {
 
       <div class="lg:flex lg:items-end lg:justify-between">
         <div>
-
           <p
             class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-400 lg:text-left"
           >
             Built with Nuxt 3, Vue 3 and Nuxt Content. Thanks WebGL!
-            <br /> Yes, I am using the most modern technology for the most ancient task.
+            <br />
+            Yes, I am using the most modern technology for the most ancient
+            task.
           </p>
         </div>
 
@@ -84,23 +85,23 @@ const scrollToTop = () => {
           </li>
         </ul>
       </div>
-
     </div>
   </footer>
 </template>
 <style scoped>
 .animate-bounce {
-animation: bounce 1s infinite;
+  animation: bounce 1s infinite;
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
   }
-  50% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-}
 }
 </style>

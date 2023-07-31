@@ -1,17 +1,17 @@
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 const isMobileNavOpen = ref(false);
 
-const toggle = () => {
+function toggle() {
   isMobileNavOpen.value = !isMobileNavOpen.value;
-};
-const setOff = () => {
+}
+function setOff() {
   isMobileNavOpen.value = false;
-};
+}
 
 const route = useRoute();
 const home = computed(() => {
-  return route.name === "index" && isMobileNavOpen != true;
+  return route.name === 'index' && isMobileNavOpen.value !== true;
 });
 </script>
 
@@ -37,16 +37,40 @@ const home = computed(() => {
               <li><NavBarLink link="/blog/">Blogs</NavBarLink></li>
             </ul>
           </nav>
-          <div class="block md:hidden" @click="toggle" v-click-outside="setOff">
+          <div v-click-outside="setOff" class="block md:hidden" @click="toggle">
             <button
               class="rounded p-2 text-gray-600 transition"
               :class="{ 'text-white': home }"
             >
-              <svg v-if="!isMobileNavOpen" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                v-if="!isMobileNavOpen"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
-              <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
@@ -55,7 +79,7 @@ const home = computed(() => {
       <Transition>
         <div
           v-if="isMobileNavOpen"
-          class="md:hidden absolute end-4 w-32 grid grid-cols-1 rounded-md border border-gray-100 shadow-lg z-10"
+          class="absolute end-4 z-10 grid w-32 grid-cols-1 rounded-md border border-gray-100 shadow-lg md:hidden"
           :class="{ 'bg-black': home, 'bg-white': !home, 'border-white': home }"
         >
           <NavBarLink link="/">Home</NavBarLink>

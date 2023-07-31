@@ -7,11 +7,11 @@
 <script>
 import { mat4, vec3 } from 'gl-matrix';
 export default {
-  mounted () {
+  mounted() {
     const _c = document.getElementsByTagName('canvas')[0];
     _c.width = window.innerWidth;
     _c.height = window.innerHeight;
-    this.runWebGL()
+    this.runWebGL();
   },
   methods: {
     runWebGL() {
@@ -19,13 +19,14 @@ export default {
       const gl = canvas.getContext('webgl');
 
       if (!gl) {
-        throw new Error('No WebGL for you suckers')
+        throw new Error('No WebGL for you suckers');
       }
 
       function spherePointCloud(pointCount) {
+        // eslint-disable-next-line prefer-const
         let points = [];
-        for (let i = 0; i<pointCount; i++) {
-          const r = () => Math.random() -.5;
+        for (let i = 0; i < pointCount; i++) {
+          const r = () => Math.random() - 0.5;
           const inputPoint = [r(), r(), r()];
           vec3.normalize(inputPoint, inputPoint);
           points.push(...inputPoint);
@@ -33,14 +34,20 @@ export default {
         return points;
       }
 
-      const vertexData = spherePointCloud(1e5)
+      const vertexData = spherePointCloud(1e5);
 
-      const positionBuffer = gl.createBuffer()
-      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexData), gl.STATIC_DRAW)
+      const positionBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+      gl.bufferData(
+        gl.ARRAY_BUFFER,
+        new Float32Array(vertexData),
+        gl.STATIC_DRAW
+      );
 
       const vertexShader = gl.createShader(gl.VERTEX_SHADER);
-      gl.shaderSource(vertexShader,  `
+      gl.shaderSource(
+        vertexShader,
+        `
       precision mediump float;
 
       attribute vec3 position;
@@ -53,11 +60,14 @@ export default {
         gl_PointSize = 1.4;
         gl_Position = matrix * vec4(position, 1);
       }
-      `);
+      `
+      );
       gl.compileShader(vertexShader);
 
-      const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER)
-      gl.shaderSource(fragmentShader, `
+      const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+      gl.shaderSource(
+        fragmentShader,
+        `
       precision mediump float;
 
       varying vec3 vColor;
@@ -65,7 +75,8 @@ export default {
       void main() {
         gl_FragColor = vec4(vColor, 1);
       }
-      `)
+      `
+      );
       gl.compileShader(fragmentShader);
 
       const program = gl.createProgram();
@@ -82,18 +93,19 @@ export default {
       gl.enable(gl.DEPTH_TEST);
 
       const uniformLocations = {
-        matrix: gl.getUniformLocation(program, `matrix`),
+        matrix: gl.getUniformLocation(program, `matrix`)
       };
 
       const modelMatrix = mat4.create();
       const viewMatrix = mat4.create();
       const projectionMatrix = mat4.create();
-      mat4.perspective(projectionMatrix,
-        60 * Math.PI/180,
-        canvas.width/canvas.height,
+      mat4.perspective(
+        projectionMatrix,
+        (60 * Math.PI) / 180,
+        canvas.width / canvas.height,
         1e-4,
         1e4
-      )
+      );
 
       const mvMatrix = mat4.create();
       const finalMatrix = mat4.create();
@@ -115,7 +127,7 @@ export default {
       animate();
     }
   }
-}
+};
 </script>
 
 <style scoped>

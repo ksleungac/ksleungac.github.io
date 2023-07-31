@@ -2,8 +2,8 @@
 const props = defineProps({
   author: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
 const formattedDate = computed(() => {

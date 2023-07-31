@@ -1,15 +1,14 @@
 <template>
   <div>
     <canvas height="400" width="400"></canvas>
-
   </div>
 </template>
 
 <script>
 import { mat4 } from 'gl-matrix';
 export default {
-  mounted () {
-    this.runWebGL()
+  mounted() {
+    this.runWebGL();
   },
   methods: {
     runWebGL() {
@@ -17,82 +16,67 @@ export default {
       const gl = canvas.getContext('webgl');
 
       if (!gl) {
-        throw new Error('No WebGL for you suckers')
+        throw new Error('No WebGL for you suckers');
       }
 
       const vertexData = [
         // Front
-        0.5, 0.5, 0.5,
-        0.5, -.5, 0.5,
-        -.5, 0.5, 0.5,
-        -.5, 0.5, 0.5,
-        0.5, -.5, 0.5,
-        -.5, -.5, 0.5,
+        0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5,
+        -0.5, 0.5, -0.5, -0.5, 0.5,
 
         // Left
-        -.5, 0.5, 0.5,
-        -.5, -.5, 0.5,
-        -.5, 0.5, -.5,
-        -.5, 0.5, -.5,
-        -.5, -.5, 0.5,
-        -.5, -.5, -.5,
+        -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5,
+        -0.5, 0.5, -0.5, -0.5, -0.5,
 
         // Back
-        0.5, 0.5, -.5,
-        0.5, -.5, -.5,
-        -.5, 0.5, -.5,
-        -.5, 0.5, -.5,
-        0.5, -.5, -.5,
-        -.5, -.5, -.5,
+        0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5,
+        -0.5, -0.5, -0.5, -0.5, -0.5,
 
         // Right
-        0.5, 0.5, 0.5,
-        0.5, -.5, 0.5,
-        0.5, 0.5, -.5,
-        0.5, 0.5, -.5,
-        0.5, -.5, 0.5,
-        0.5, -.5, -.5,
+        0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5,
+        -0.5, 0.5, 0.5, -0.5, -0.5,
 
         // Top
-        0.5, 0.5, 0.5,
-        0.5, 0.5, -.5,
-        -.5, 0.5, 0.5,
-        -.5, 0.5, 0.5,
-        0.5, 0.5 ,-.5,
-        -.5, 0.5, -.5,
+        0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5,
+        -0.5, -0.5, 0.5, -0.5,
 
         // Bottom
-        0.5, -.5, 0.5,
-        0.5, -.5, -.5,
-        -.5, -.5, 0.5,
-        -.5, -.5, 0.5,
-        0.5, -.5 ,-.5,
-        -.5, -.5, -.5,
+        0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5,
+        -0.5, -0.5, -0.5, -0.5, -0.5
       ];
-
 
       function randomColor() {
         return [Math.random(), Math.random(), Math.random()];
       }
-      
-      let colorData = []
+
+      const colorData = [];
       for (let face = 0; face < 6; face++) {
-        let faceColor = randomColor();
+        const faceColor = randomColor();
         for (let vertex = 0; vertex < 6; vertex++) {
           colorData.push(...faceColor);
         }
       }
 
-      const positionBuffer = gl.createBuffer()
-      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexData), gl.STATIC_DRAW)
+      const positionBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+      gl.bufferData(
+        gl.ARRAY_BUFFER,
+        new Float32Array(vertexData),
+        gl.STATIC_DRAW
+      );
 
-      const colorBuffer = gl.createBuffer()
-      gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer)
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colorData), gl.STATIC_DRAW)
+      const colorBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+      gl.bufferData(
+        gl.ARRAY_BUFFER,
+        new Float32Array(colorData),
+        gl.STATIC_DRAW
+      );
 
       const vertexShader = gl.createShader(gl.VERTEX_SHADER);
-      gl.shaderSource(vertexShader,  `
+      gl.shaderSource(
+        vertexShader,
+        `
       precision mediump float;
 
       attribute vec3 position;
@@ -105,11 +89,14 @@ export default {
         vColor = color;
         gl_Position = matrix * vec4(position, 1);
       }
-      `);
+      `
+      );
       gl.compileShader(vertexShader);
 
-      const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER)
-      gl.shaderSource(fragmentShader, `
+      const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+      gl.shaderSource(
+        fragmentShader,
+        `
       precision mediump float;
 
       varying vec3 vColor;
@@ -117,7 +104,8 @@ export default {
       void main() {
         gl_FragColor = vec4(vColor, 1);
       }
-      `)
+      `
+      );
       gl.compileShader(fragmentShader);
 
       const program = gl.createProgram();
@@ -139,11 +127,11 @@ export default {
       gl.enable(gl.DEPTH_TEST);
 
       const uniformLocations = {
-        matrix: gl.getUniformLocation(program, `matrix`),
+        matrix: gl.getUniformLocation(program, `matrix`)
       };
 
       const matrix = mat4.create();
-      mat4.translate(matrix, matrix, [.2, .5, 0]);
+      mat4.translate(matrix, matrix, [0.2, 0.5, 0]);
       mat4.scale(matrix, matrix, [0.25, 0.25, 0.25]);
 
       function animate() {
@@ -157,5 +145,5 @@ export default {
       animate();
     }
   }
-}
+};
 </script>
