@@ -14,4 +14,4 @@ This project was submitted in the Spring Semester in the year 2023. (around May)
 
 ## Project Report
 
-<embed src="/pdf/Machine_Learning_Report.pdf" width="100%" style="min-height:100vh" >
+<iframe src="/pdf/Machine_Learning_Report.pdf#view=FitH" style="width: 100%; height: 100vh"></iframe>
