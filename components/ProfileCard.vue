@@ -44,6 +44,14 @@
                   >School Email</a
                 >
               </li>
+              <li>
+                <a
+                  href="https://leetcode.com/Minato123/"
+                  class="underline decoration-solid"
+                >
+                  LeetCode
+                </a>
+              </li>
             </ul>
           </div>
         </div>

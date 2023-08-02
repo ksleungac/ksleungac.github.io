@@ -11,7 +11,7 @@ function setOff() {
 
 const route = useRoute();
 const home = computed(() => {
-  return route.name === 'index' && isMobileNavOpen.value !== true;
+  return route.name === 'index';
 });
 </script>
 
@@ -79,8 +79,8 @@ const home = computed(() => {
       <Transition>
         <div
           v-if="isMobileNavOpen"
-          class="absolute end-4 z-10 grid w-32 grid-cols-1 rounded-md border border-gray-100 shadow-lg md:hidden"
-          :class="{ 'bg-black': home, 'bg-white': !home, 'border-white': home }"
+          class="absolute end-4 z-10 grid w-32 grid-cols-1 border border-gray-100 shadow-lg md:hidden"
+          :class="{ 'bg-black': home, 'bg-white': !home, 'border-none': home }"
         >
           <NavBarLink link="/">Home</NavBarLink>
           <NavBarLink link="/blog/">Blogs</NavBarLink>

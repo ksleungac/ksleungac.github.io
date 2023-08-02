@@ -31,18 +31,22 @@ const emit = defineEmits(['update:modelValue']);
           >
             <div
               class="p-6 transition-opacity group-hover:absolute group-hover:opacity-0"
-              :class="{ 'absolute p-6 opacity-0': modelValue == cat.value }"
+              :class="{ 'absolute p-4 opacity-0': modelValue == cat.value }"
             >
-              <span class="text-base font-medium xl:text-xl">{{
-                cat.title
-              }}</span>
+              <p
+                class="truncate whitespace-nowrap text-base font-medium md:max-[900px]:w-40 xl:text-xl"
+              >
+                {{ cat.title }}
+              </p>
             </div>
 
             <div
               class="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100"
               :class="{ 'relative opacity-100': modelValue == cat.value }"
             >
-              <h3 class="mt-4 text-base font-medium xl:text-xl">
+              <h3
+                class="mt-2 truncate whitespace-nowrap text-base font-medium md:max-[900px]:w-40 xl:text-xl"
+              >
                 {{ cat.title }}
               </h3>
 
